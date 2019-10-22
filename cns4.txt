@@ -1,0 +1,407 @@
+ubuntu@hp11:~/Desktop$ ifconfig
+enp3s0    Link encap:Ethernet  HWaddr 40:a8:f0:43:95:46  
+          inet addr:8.8.5.12  Bcast:8.8.5.31  Mask:255.255.255.224
+          inet6 addr: fe80::42a8:f0ff:fe43:9546/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:330693 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:338339 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:204516746 (204.5 MB)  TX bytes:315029835 (315.0 MB)
+
+lo        Link encap:Local Loopback  
+          inet addr:127.0.0.1  Mask:255.0.0.0
+          inet6 addr: ::1/128 Scope:Host
+          UP LOOPBACK RUNNING  MTU:65536  Metric:1
+          RX packets:5305 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:5305 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:441952 (441.9 KB)  TX bytes:441952 (441.9 KB)
+
+ubuntu@hp11:~/Desktop$ tcpdump -i enp3s0
+tcpdump: enp3s0: You don't have permission to capture on that device
+(socket: Operation not permitted)
+ubuntu@hp11:~/Desktop$ sudo tcpdump -i enp3s0
+[sudo] password for ubuntu: 
+Sorry, try again.
+[sudo] password for ubuntu: 
+tcpdump: verbose output suppressed, use -v or -vv for full protocol decode
+listening on enp3s0, link-type EN10MB (Ethernet), capture size 262144 bytes
+11:57:35.202282 ARP, Request who-has 8.8.5.24 tell 8.8.5.1, length 46
+11:57:36.202964 ARP, Request who-has 8.8.5.24 tell 8.8.5.1, length 46
+11:57:37.202643 ARP, Request who-has 8.8.5.24 tell 8.8.5.1, length 46
+11:57:38.202315 ARP, Request who-has 8.8.5.24 tell 8.8.5.1, length 46
+11:57:39.203021 ARP, Request who-has 8.8.5.24 tell 8.8.5.1, length 46
+11:57:40.202704 ARP, Request who-has 8.8.5.24 tell 8.8.5.1, length 46
+11:57:41.202365 ARP, Request who-has 8.8.5.24 tell 8.8.5.1, length 46
+11:57:42.205077 ARP, Request who-has 8.8.5.24 tell 8.8.5.1, length 46
+11:57:43.204758 ARP, Request who-has 8.8.5.24 tell 8.8.5.1, length 46
+11:57:44.204467 ARP, Request who-has 8.8.5.24 tell 8.8.5.1, length 46
+11:57:45.205143 ARP, Request who-has 8.8.5.24 tell 8.8.5.1, length 46
+11:57:46.204820 ARP, Request who-has 8.8.5.24 tell 8.8.5.1, length 46
+11:57:47.204487 ARP, Request who-has 8.8.5.24 tell 8.8.5.1, length 46
+11:57:48.205200 ARP, Request who-has 8.8.5.24 tell 8.8.5.1, length 46
+11:57:48.568483 IP hp11.fragnel.ac.in.940 > ganesh.fragnel.ac.in.nfs: Flags [.], ack 2473171526, win 13588, options [nop,nop,TS val 3198779567 ecr 928710158], length 0
+11:57:48.568876 IP ganesh.fragnel.ac.in.nfs > hp11.fragnel.ac.in.940: Flags [.], ack 1, win 16501, options [nop,nop,TS val 928717758 ecr 3198719152], length 0
+11:57:49.205883 ARP, Request who-has 8.8.5.24 tell 8.8.5.1, length 46
+11:57:49.592525 IP hp11.fragnel.ac.in.940 > ganesh.fragnel.ac.in.nfs: Flags [P.], seq 1:93, ack 1, win 13588, options [nop,nop,TS val 3198780591 ecr 928717758], length 92: NFS request xid 3474236049 88 getattr [|nfs]
+11:57:49.593178 IP ganesh.fragnel.ac.in.nfs > hp11.fragnel.ac.in.940: Flags [P.], seq 1:49, ack 93, win 16501, options [nop,nop,TS val 928718014 ecr 3198780591], length 48: NFS reply xid 3474236049 reply ok 44 getattr [|nfs]
+11:57:49.593209 IP hp11.fragnel.ac.in.940 > ganesh.fragnel.ac.in.nfs: Flags [.], ack 49, win 13588, options [nop,nop,TS val 3198780592 ecr 928718014], length 0
+11:57:50.205576 ARP, Request who-has 8.8.5.24 tell 8.8.5.1, length 46
+11:57:51.206255 ARP, Request who-has 8.8.5.24 tell 8.8.5.1, length 46
+11:57:52.205946 ARP, Request who-has 8.8.5.24 tell 8.8.5.1, length 46
+11:57:53.205633 ARP, Request who-has 8.8.5.24 tell 8.8.5.1, length 46
+11:57:54.206319 ARP, Request who-has 8.8.5.24 tell 8.8.5.1, length 46
+11:57:55.207001 ARP, Request who-has 8.8.5.24 tell 8.8.5.1, length 46
+11:57:56.206693 ARP, Request who-has 8.8.5.24 tell 8.8.5.1, length 46
+11:57:57.207373 ARP, Request who-has 8.8.5.24 tell 8.8.5.1, length 46
+11:57:58.207060 ARP, Request who-has 8.8.5.24 tell 8.8.5.1, length 46
+11:57:58.295842 IP 8.8.5.3.58325 > 239.255.255.250.1900: UDP, length 174
+11:57:59.206750 ARP, Request who-has 8.8.5.24 tell 8.8.5.1, length 46
+11:57:59.296599 IP 8.8.5.3.58325 > 239.255.255.250.1900: UDP, length 174
+11:58:00.207433 ARP, Request who-has 8.8.5.24 tell 8.8.5.1, length 46
+11:58:00.296665 IP 8.8.5.3.58325 > 239.255.255.250.1900: UDP, length 174
+11:58:01.207122 ARP, Request who-has 8.8.5.24 tell 8.8.5.1, length 46
+11:58:01.296847 IP 8.8.5.3.58325 > 239.255.255.250.1900: UDP, length 174
+11:58:02.207811 ARP, Request who-has 8.8.5.24 tell 8.8.5.1, length 46
+11:58:03.208491 ARP, Request who-has 8.8.5.24 tell 8.8.5.1, length 46
+11:58:04.208169 ARP, Request who-has 8.8.5.24 tell 8.8.5.1, length 46
+11:58:05.207863 ARP, Request who-has 8.8.5.24 tell 8.8.5.1, length 46
+11:58:06.208501 ARP, Request who-has 8.8.5.24 tell 8.8.5.1, length 46
+^C
+41 packets captured
+41 packets received by filter
+0 packets dropped by kernel
+ubuntu@hp11:~/Desktop$ sudo tcpdump -i enp3s0
+tcpdump: verbose output suppressed, use -v or -vv for full protocol decode
+listening on enp3s0, link-type EN10MB (Ethernet), capture size 262144 bytes
+11:58:23.213211 ARP, Request who-has 8.8.5.24 tell 8.8.5.1, length 46
+11:58:24.213907 ARP, Request who-has 8.8.5.24 tell 8.8.5.1, length 46
+11:58:24.607773 ARP, Request who-has hp11.fragnel.ac.in tell 8.8.5.1, length 46
+11:58:24.607796 ARP, Reply hp11.fragnel.ac.in is-at 40:a8:f0:43:95:46 (oui Unknown), length 28
+11:58:24.886386 IP6 fe80::a2d3:c1ff:fe33:ddc9.mdns > ff02::fb.mdns: 0 [2q] PTR (QM)? _ipp._tcp.local. PTR (QM)? _ipps._tcp.local. (45)
+11:58:24.886416 IP 8.8.5.14.mdns > 224.0.0.251.mdns: 0 [2q] PTR (QM)? _ipp._tcp.local. PTR (QM)? _ipps._tcp.local. (45)
+11:58:24.920499 ARP, Request who-has 8.8.5.1 tell hp11.fragnel.ac.in, length 28
+11:58:24.920698 ARP, Reply 8.8.5.1 is-at 70:62:b8:94:72:bd (oui Unknown), length 46
+11:58:25.213584 ARP, Request who-has 8.8.5.24 tell 8.8.5.1, length 46
+11:58:25.779999 IP 8.8.5.10 > 224.0.0.22: igmp v3 report, 1 group record(s)
+11:58:25.780015 IP6 :: > ff02::16: HBH ICMP6, multicast listener report v2, 1 group record(s), length 28
+11:58:25.803792 ARP, Reply 8.8.5.10 is-at b4:2e:99:44:b5:91 (oui Unknown), length 46
+11:58:25.877460 IP 8.8.5.10.mdns > 224.0.0.251.mdns: 0 [2q] PTR (QM)? _ipps._tcp.local. PTR (QM)? _ipp._tcp.local. (45)
+11:58:25.882356 ARP, Request who-has 8.8.5.1 tell 8.8.5.10, length 46
+11:58:25.937835 IP 8.8.5.10.mdns > 224.0.0.251.mdns: 0 [2q] [2n] ANY (QM)? 10.5.8.8.in-addr.arpa. ANY (QM)? hp9.local. (84)
+11:58:26.188322 IP 8.8.5.10.mdns > 224.0.0.251.mdns: 0 [2q] [2n] ANY (QM)? 10.5.8.8.in-addr.arpa. ANY (QM)? hp9.local. (84)
+11:58:26.213239 ARP, Request who-has 8.8.5.24 tell 8.8.5.1, length 46
+11:58:26.337945 IP 8.8.5.10 > 224.0.0.22: igmp v3 report, 1 group record(s)
+11:58:26.438822 IP 8.8.5.10.mdns > 224.0.0.251.mdns: 0 [2q] [2n] ANY (QM)? 10.5.8.8.in-addr.arpa. ANY (QM)? hp9.local. (84)
+11:58:26.465944 IP6 :: > ff02::16: HBH ICMP6, multicast listener report v2, 1 group record(s), length 28
+11:58:26.639119 IP 8.8.5.10.mdns > 224.0.0.251.mdns: 0*- [0q] 2/0/0 (Cache flush) PTR hp9.local., (Cache flush) A 8.8.5.10 (72)
+11:58:26.785995 IP6 :: > ff02::1:ff84:40a2: ICMP6, neighbor solicitation, who has fe80::a37:d84f:9a84:40a2, length 32
+11:58:26.878471 IP 8.8.5.10.mdns > 224.0.0.251.mdns: 0 [2q] PTR (QM)? _ipps._tcp.local. PTR (QM)? _ipp._tcp.local. (45)
+11:58:27.213957 ARP, Request who-has 8.8.5.24 tell 8.8.5.1, length 46
+11:58:27.750646 IP 8.8.5.10.mdns > 224.0.0.251.mdns: 0*- [0q] 2/0/0 (Cache flush) PTR hp9.local., (Cache flush) A 8.8.5.10 (72)
+11:58:27.810019 IP6 fe80::a37:d84f:9a84:40a2 > ff02::16: HBH ICMP6, multicast listener report v2, 1 group record(s), length 28
+11:58:27.813002 IP6 fe80::a37:d84f:9a84:40a2 > ff02::16: HBH ICMP6, multicast listener report v2, 1 group record(s), length 28
+11:58:27.876975 IP6 fe80::a37:d84f:9a84:40a2 > ip6-allrouters: ICMP6, router solicitation, length 8
+11:58:27.877268 ARP, Request who-has 8.8.5.10 (Broadcast) tell 8.8.5.10, length 46
+11:58:27.910685 IP6 fe80::a37:d84f:9a84:40a2.mdns > ff02::fb.mdns: 0 [2q] PTR (QM)? _ipps._tcp.local. PTR (QM)? _ipp._tcp.local. (45)
+11:58:27.971106 IP6 fe80::a37:d84f:9a84:40a2.mdns > ff02::fb.mdns: 0 [2q] [2n] ANY (QM)? 2.a.0.4.4.8.a.9.f.4.8.d.7.3.a.0.0.0.0.0.0.0.0.0.0.0.0.0.0.8.e.f.ip6.arpa. ANY (QM)? hp9.local. (147)
+11:58:27.971135 IP 8.8.5.10.mdns > 224.0.0.251.mdns: 0 [2q] [2n] ANY (QM)? 2.a.0.4.4.8.a.9.f.4.8.d.7.3.a.0.0.0.0.0.0.0.0.0.0.0.0.0.0.8.e.f.ip6.arpa. ANY (QM)? hp9.local. (147)
+11:58:28.213643 ARP, Request who-has 8.8.5.24 tell 8.8.5.1, length 46
+11:58:28.221893 IP6 fe80::a37:d84f:9a84:40a2.mdns > ff02::fb.mdns: 0 [2q] [2n] ANY (QM)? 2.a.0.4.4.8.a.9.f.4.8.d.7.3.a.0.0.0.0.0.0.0.0.0.0.0.0.0.0.8.e.f.ip6.arpa. ANY (QM)? hp9.local. (147)
+11:58:28.221918 IP 8.8.5.10.mdns > 224.0.0.251.mdns: 0 [2q] [2n] ANY (QM)? 2.a.0.4.4.8.a.9.f.4.8.d.7.3.a.0.0.0.0.0.0.0.0.0.0.0.0.0.0.8.e.f.ip6.arpa. ANY (QM)? hp9.local. (147)
+11:58:28.241974 IP6 fe80::a37:d84f:9a84:40a2 > ff02::16: HBH ICMP6, multicast listener report v2, 1 group record(s), length 28
+11:58:28.472640 IP6 fe80::a37:d84f:9a84:40a2.mdns > ff02::fb.mdns: 0 [2q] [2n] ANY (QM)? 2.a.0.4.4.8.a.9.f.4.8.d.7.3.a.0.0.0.0.0.0.0.0.0.0.0.0.0.0.8.e.f.ip6.arpa. ANY (QM)? hp9.local. (147)
+11:58:28.472668 IP 8.8.5.10.mdns > 224.0.0.251.mdns: 0 [2q] [2n] ANY (QM)? 2.a.0.4.4.8.a.9.f.4.8.d.7.3.a.0.0.0.0.0.0.0.0.0.0.0.0.0.0.8.e.f.ip6.arpa. ANY (QM)? hp9.local. (147)
+11:58:28.472682 IP 8.8.5.10.mdns > 224.0.0.251.mdns: 0*- [0q] 1/0/0 (Cache flush) A 8.8.5.10 (37)
+11:58:28.673176 IP 8.8.5.10.mdns > 224.0.0.251.mdns: 0*- [0q] 2/0/0 (Cache flush) PTR hp9.local., (Cache flush) AAAA fe80::a37:d84f:9a84:40a2 (135)
+11:58:28.673203 IP6 fe80::a37:d84f:9a84:40a2.mdns > ff02::fb.mdns: 0*- [0q] 2/0/0 (Cache flush) PTR hp9.local., (Cache flush) AAAA fe80::a37:d84f:9a84:40a2 (135)
+11:58:28.834009 IP6 fe80::a37:d84f:9a84:40a2 > ff02::16: HBH ICMP6, multicast listener report v2, 2 group record(s), length 48
+11:58:28.879527 IP 8.8.5.10.mdns > 224.0.0.251.mdns: 0 [2q] PTR (QM)? _ipps._tcp.local. PTR (QM)? _ipp._tcp.local. (45)
+11:58:28.910714 IP6 fe80::a37:d84f:9a84:40a2.mdns > ff02::fb.mdns: 0 [2q] PTR (QM)? _ipps._tcp.local. PTR (QM)? _ipp._tcp.local. (45)
+11:58:29.214331 ARP, Request who-has 8.8.5.24 tell 8.8.5.1, length 46
+11:58:29.784204 IP 8.8.5.10.mdns > 224.0.0.251.mdns: 0*- [0q] 2/0/0 (Cache flush) PTR hp9.local., (Cache flush) AAAA fe80::a37:d84f:9a84:40a2 (135)
+11:58:29.784232 IP6 fe80::a37:d84f:9a84:40a2.mdns > ff02::fb.mdns: 0*- [0q] 2/0/0 (Cache flush) PTR hp9.local., (Cache flush) AAAA fe80::a37:d84f:9a84:40a2 (135)
+11:58:29.861411 IP 8.8.5.10.mdns > 224.0.0.251.mdns: 0*- [0q] 2/0/0 (Cache flush) PTR hp9.local., (Cache flush) A 8.8.5.10 (72)
+11:58:30.215016 ARP, Request who-has 8.8.5.24 tell 8.8.5.1, length 46
+11:58:30.911761 IP6 fe80::a37:d84f:9a84:40a2.mdns > ff02::fb.mdns: 0 [2q] PTR (QM)? _ipps._tcp.local. PTR (QM)? _ipp._tcp.local. (45)
+11:58:31.214663 ARP, Request who-has 8.8.5.24 tell 8.8.5.1, length 46
+11:58:31.894780 IP 8.8.5.10.mdns > 224.0.0.251.mdns: 0*- [0q] 2/0/0 (Cache flush) PTR hp9.local., (Cache flush) AAAA fe80::a37:d84f:9a84:40a2 (135)
+11:58:31.894804 IP6 fe80::a37:d84f:9a84:40a2.mdns > ff02::fb.mdns: 0*- [0q] 2/0/0 (Cache flush) PTR hp9.local., (Cache flush) AAAA fe80::a37:d84f:9a84:40a2 (135)
+11:58:32.214392 ARP, Request who-has 8.8.5.24 tell 8.8.5.1, length 46
+11:58:32.880708 IP 8.8.5.10.mdns > 224.0.0.251.mdns: 0 [2q] PTR (QM)? _ipps._tcp.local. PTR (QM)? _ipp._tcp.local. (45)
+11:58:33.215071 ARP, Request who-has 8.8.5.24 tell 8.8.5.1, length 46
+11:58:33.259393 IP6 fe80::a2d3:c1ff:fe33:ddc9 > ip6-allrouters: ICMP6, router solicitation, length 16
+11:58:34.214762 ARP, Request who-has 8.8.5.24 tell 8.8.5.1, length 46
+11:58:34.913966 IP6 fe80::a37:d84f:9a84:40a2.mdns > ff02::fb.mdns: 0 [2q] PTR (QM)? _ipps._tcp.local. PTR (QM)? _ipp._tcp.local. (45)
+11:58:35.214411 ARP, Request who-has 8.8.5.24 tell 8.8.5.1, length 46
+11:58:36.217132 ARP, Request who-has 8.8.5.24 tell 8.8.5.1, length 46
+11:58:37.216814 ARP, Request who-has 8.8.5.24 tell 8.8.5.1, length 46
+11:58:38.216502 ARP, Request who-has 8.8.5.24 tell 8.8.5.1, length 46
+11:58:39.217186 ARP, Request who-has 8.8.5.24 tell 8.8.5.1, length 46
+11:58:40.216877 ARP, Request who-has 8.8.5.24 tell 8.8.5.1, length 46
+11:58:40.757394 IP6 fe80::385a:6e15:c971:34a1.mdns > ff02::fb.mdns: 0 [2q] SRV (QM)? SFTP File Transfer on router3._sftp-ssh._tcp.local. AAAA (QM)? router3.local. (82)
+11:58:40.757586 IP6 fe80::7262:b8ff:fe94:72bd.mdns > ff02::fb.mdns: 0*- [0q] 2/0/0 (Cache flush) AAAA fe80::7262:b8ff:fe94:72bd, (Cache flush) SRV router3.local.:22 0 0 (118)
+11:58:40.880981 IP 8.8.5.10.mdns > 224.0.0.251.mdns: 0 [2q] PTR (QM)? _ipps._tcp.local. PTR (QM)? _ipp._tcp.local. (45)
+11:58:41.216563 ARP, Request who-has 8.8.5.24 tell 8.8.5.1, length 46
+11:58:42.219245 ARP, Request who-has 8.8.5.24 tell 8.8.5.1, length 46
+11:58:42.916362 IP6 fe80::a37:d84f:9a84:40a2.mdns > ff02::fb.mdns: 0 [2q] PTR (QM)? _ipps._tcp.local. PTR (QM)? _ipp._tcp.local. (45)
+11:58:43.218894 ARP, Request who-has 8.8.5.24 tell 8.8.5.1, length 46
+11:58:44.218614 ARP, Request who-has 8.8.5.24 tell 8.8.5.1, length 46
+11:58:44.747349 IP6 :: > ff02::16: HBH ICMP6, multicast listener report v2, 1 group record(s), length 28
+11:58:44.763766 IP 0.0.0.0.bootpc > 255.255.255.255.bootps: BOOTP/DHCP, Request from b4:2e:99:4f:5e:53 (oui Unknown), length 300
+11:58:45.219291 ARP, Request who-has 8.8.5.24 tell 8.8.5.1, length 46
+11:58:45.411352 IP6 :: > ff02::16: HBH ICMP6, multicast listener report v2, 1 group record(s), length 28
+11:58:45.603335 IP6 :: > ff02::1:ff62:6a90: ICMP6, neighbor solicitation, who has fe80::7396:992d:ef62:6a90, length 32
+11:58:46.218988 ARP, Request who-has 8.8.5.24 tell 8.8.5.1, length 46
+11:58:46.627432 IP6 fe80::7396:992d:ef62:6a90 > ff02::16: HBH ICMP6, multicast listener report v2, 1 group record(s), length 28
+11:58:46.639301 IP6 fe80::7396:992d:ef62:6a90 > ff02::16: HBH ICMP6, multicast listener report v2, 1 group record(s), length 28
+11:58:46.727887 IP6 fe80::7396:992d:ef62:6a90 > ip6-allrouters: ICMP6, router solicitation, length 8
+11:58:46.728133 IP6 fe80::7396:992d:ef62:6a90.mdns > ff02::fb.mdns: 0 [2q] PTR (QM)? _ipps._tcp.local. PTR (QM)? _ipp._tcp.local. (45)
+11:58:46.855322 IP6 fe80::7396:992d:ef62:6a90 > ff02::16: HBH ICMP6, multicast listener report v2, 1 group record(s), length 28
+11:58:46.883706 IP6 fe80::7396:992d:ef62:6a90.mdns > ff02::fb.mdns: 0 [2q] [2n] ANY (QM)? 0.9.a.6.2.6.f.e.d.2.9.9.6.9.3.7.0.0.0.0.0.0.0.0.0.0.0.0.0.8.e.f.ip6.arpa. ANY (QM)? ubuntu.local. (150)
+11:58:47.134280 IP6 fe80::7396:992d:ef62:6a90.mdns > ff02::fb.mdns: 0 [2q] [2n] ANY (QM)? 0.9.a.6.2.6.f.e.d.2.9.9.6.9.3.7.0.0.0.0.0.0.0.0.0.0.0.0.0.8.e.f.ip6.arpa. ANY (QM)? ubuntu.local. (150)
+11:58:47.218678 ARP, Request who-has 8.8.5.24 tell 8.8.5.1, length 46
+11:58:47.347133 IP 0.0.0.0.bootpc > 255.255.255.255.bootps: BOOTP/DHCP, Request from b4:2e:99:4f:5e:53 (oui Unknown), length 300
+11:58:47.384778 IP6 fe80::7396:992d:ef62:6a90.mdns > ff02::fb.mdns: 0 [2q] [2n] ANY (QM)? 0.9.a.6.2.6.f.e.d.2.9.9.6.9.3.7.0.0.0.0.0.0.0.0.0.0.0.0.0.8.e.f.ip6.arpa. ANY (QM)? ubuntu.local. (150)
+11:58:47.491327 IP6 fe80::7396:992d:ef62:6a90 > ff02::16: HBH ICMP6, multicast listener report v2, 2 group record(s), length 48
+11:58:47.585285 IP6 fe80::7396:992d:ef62:6a90.mdns > ff02::fb.mdns: 0*- [0q] 2/0/0 (Cache flush) PTR ubuntu.local., (Cache flush) AAAA fe80::7396:992d:ef62:6a90 (138)
+11:58:47.728506 IP6 fe80::7396:992d:ef62:6a90.mdns > ff02::fb.mdns: 0 [2q] PTR (QM)? _ipps._tcp.local. PTR (QM)? _ipp._tcp.local. (45)
+11:58:48.219362 ARP, Request who-has 8.8.5.24 tell 8.8.5.1, length 46
+11:58:48.791958 IP6 fe80::7396:992d:ef62:6a90.mdns > ff02::fb.mdns: 0*- [0q] 2/0/0 (Cache flush) PTR ubuntu.local., (Cache flush) AAAA fe80::7396:992d:ef62:6a90 (138)
+11:58:49.220019 ARP, Request who-has 8.8.5.24 tell 8.8.5.1, length 46
+11:58:49.729034 IP6 fe80::7396:992d:ef62:6a90.mdns > ff02::fb.mdns: 0 [2q] PTR (QM)? _ipps._tcp.local. PTR (QM)? _ipp._tcp.local. (45)
+11:58:50.008496 IP hp11.fragnel.ac.in.940 > ganesh.fragnel.ac.in.nfs: Flags [.], ack 2473171574, win 13588, options [nop,nop,TS val 3198841007 ecr 928725518], length 0
+11:58:50.008827 IP ganesh.fragnel.ac.in.nfs > hp11.fragnel.ac.in.940: Flags [.], ack 1, win 16501, options [nop,nop,TS val 928733118 ecr 3198780592], length 0
+11:58:50.036030 IP 0.0.0.0.bootpc > 255.255.255.255.bootps: BOOTP/DHCP, Request from b4:2e:99:4f:5e:53 (oui Unknown), length 300
+11:58:50.219726 ARP, Request who-has 8.8.5.24 tell 8.8.5.1, length 46
+11:58:50.732003 IP6 fe80::7396:992d:ef62:6a90 > ip6-allrouters: ICMP6, router solicitation, length 8
+11:58:50.998623 IP6 fe80::7396:992d:ef62:6a90.mdns > ff02::fb.mdns: 0*- [0q] 2/0/0 (Cache flush) PTR ubuntu.local., (Cache flush) AAAA fe80::7396:992d:ef62:6a90 (138)
+11:58:51.032540 IP hp11.fragnel.ac.in.940 > ganesh.fragnel.ac.in.nfs: Flags [P.], seq 1:93, ack 1, win 13588, options [nop,nop,TS val 3198842031 ecr 928733118], length 92: NFS request xid 3491013265 88 getattr [|nfs]
+11:58:51.033209 IP ganesh.fragnel.ac.in.nfs > hp11.fragnel.ac.in.940: Flags [P.], seq 1:49, ack 93, win 16501, options [nop,nop,TS val 928733374 ecr 3198842031], length 48: NFS reply xid 3491013265 reply ok 44 getattr [|nfs]
+11:58:51.033239 IP hp11.fragnel.ac.in.940 > ganesh.fragnel.ac.in.nfs: Flags [.], ack 49, win 13588, options [nop,nop,TS val 3198842032 ecr 928733374], length 0
+11:58:51.220415 ARP, Request who-has 8.8.5.24 tell 8.8.5.1, length 46
+11:58:52.220083 ARP, Request who-has 8.8.5.24 tell 8.8.5.1, length 46
+11:58:53.219784 ARP, Request who-has 8.8.5.24 tell 8.8.5.1, length 46
+11:58:53.731483 IP6 fe80::7396:992d:ef62:6a90.mdns > ff02::fb.mdns: 0 [2q] PTR (QM)? _ipps._tcp.local. PTR (QM)? _ipp._tcp.local. (45)
+11:58:53.813936 IP 0.0.0.0.bootpc > 255.255.255.255.bootps: BOOTP/DHCP, Request from b4:2e:99:4f:5e:53 (oui Unknown), length 300
+11:58:54.220479 ARP, Request who-has 8.8.5.24 tell 8.8.5.1, length 46
+11:58:54.732187 IP6 fe80::7396:992d:ef62:6a90 > ip6-allrouters: ICMP6, router solicitation, length 8
+11:58:55.007234 ARP, Request who-has hp11.fragnel.ac.in tell 8.8.5.1, length 46
+11:58:55.007257 ARP, Reply hp11.fragnel.ac.in is-at 40:a8:f0:43:95:46 (oui Unknown), length 28
+11:58:55.220158 ARP, Request who-has 8.8.5.24 tell 8.8.5.1, length 46
+11:58:56.220861 ARP, Request who-has 8.8.5.24 tell 8.8.5.1, length 46
+11:58:56.884166 IP 8.8.5.10.mdns > 224.0.0.251.mdns: 0 [2q] PTR (QM)? _ipps._tcp.local. PTR (QM)? _ipp._tcp.local. (45)
+11:58:57.221504 ARP, Request who-has 8.8.5.24 tell 8.8.5.1, length 46
+11:58:58.221225 ARP, Request who-has 8.8.5.24 tell 8.8.5.1, length 46
+11:58:58.918466 IP6 fe80::a37:d84f:9a84:40a2.mdns > ff02::fb.mdns: 0 [2q] PTR (QM)? _ipps._tcp.local. PTR (QM)? _ipp._tcp.local. (45)
+11:58:59.220913 ARP, Request who-has 8.8.5.24 tell 8.8.5.1, length 46
+11:59:00.221596 ARP, Request who-has 8.8.5.24 tell 8.8.5.1, length 46
+11:59:00.954051 IP 0.0.0.0.bootpc > 255.255.255.255.bootps: BOOTP/DHCP, Request from b4:2e:99:4f:5e:53 (oui Unknown), length 300
+11:59:01.221280 ARP, Request who-has 8.8.5.24 tell 8.8.5.1, length 46
+11:59:01.734613 IP6 fe80::7396:992d:ef62:6a90.mdns > ff02::fb.mdns: 0 [2q] PTR (QM)? _ipps._tcp.local. PTR (QM)? _ipp._tcp.local. (45)
+11:59:02.220971 ARP, Request who-has 8.8.5.24 tell 8.8.5.1, length 46
+11:59:03.223653 ARP, Request who-has 8.8.5.24 tell 8.8.5.1, length 46
+11:59:04.223344 ARP, Request who-has 8.8.5.24 tell 8.8.5.1, length 46
+^C
+128 packets captured
+128 packets received by filter
+0 packets dropped by kernel
+ubuntu@hp11:~/Desktop$ cd ..
+ubuntu@hp11:~$ touch jay.pcap
+ubuntu@hp11:~$ sudo tcpdump -w jay.pcap -i enp3s0
+tcpdump: listening on enp3s0, link-type EN10MB (Ethernet), capture size 262144 bytes
+^C176 packets captured
+176 packets received by filter
+0 packets dropped by kernel
+ubuntu@hp11:~$ ^C
+ubuntu@hp11:~$ ^C
+ubuntu@hp11:~$ tcmpdump -tttt -r jay.pcap
+No command 'tcmpdump' found, did you mean:
+ Command 'tcpdump' from package 'tcpdump' (main)
+tcmpdump: command not found
+ubuntu@hp11:~$ tcpdump -tttt -r jay.pcap
+reading from file jay.pcap, link-type EN10MB (Ethernet)
+2019-08-07 12:02:12.955094 ARP, Request who-has 8.8.5.24 tell 8.8.5.1, length 46
+2019-08-07 12:02:13.954782 ARP, Request who-has 8.8.5.24 tell 8.8.5.1, length 46
+2019-08-07 12:02:14.481102 IP6 fe80::b9d0:680d:7dd6:3b88 > ff02::16: HBH ICMP6, multicast listener report v2, 1 group record(s), length 28
+2019-08-07 12:02:14.481553 IP 8.8.5.26 > 224.0.0.22: igmp v3 report, 1 group record(s)
+2019-08-07 12:02:14.482092 IP6 fe80::b9d0:680d:7dd6:3b88 > ff02::16: HBH ICMP6, multicast listener report v2, 1 group record(s), length 28
+2019-08-07 12:02:14.482295 IP 8.8.5.26 > 224.0.0.22: igmp v3 report, 1 group record(s)
+2019-08-07 12:02:14.482618 IP6 fe80::b9d0:680d:7dd6:3b88 > ff02::16: HBH ICMP6, multicast listener report v2, 1 group record(s), length 28
+2019-08-07 12:02:14.482626 IP 8.8.5.26 > 224.0.0.22: igmp v3 report, 1 group record(s)
+2019-08-07 12:02:14.484799 IP6 fe80::b9d0:680d:7dd6:3b88 > ff02::16: HBH ICMP6, multicast listener report v2, 1 group record(s), length 28
+2019-08-07 12:02:14.484963 IP 8.8.5.26 > 224.0.0.22: igmp v3 report, 1 group record(s)
+2019-08-07 12:02:14.486436 IP6 fe80::b9d0:680d:7dd6:3b88.53805 > ff02::1:3.hostmon: UDP, length 33
+2019-08-07 12:02:14.486446 IP 8.8.5.26.53805 > 224.0.0.252.hostmon: UDP, length 33
+2019-08-07 12:02:14.500333 IP 8.8.5.26 > 224.0.0.22: igmp v3 report, 2 group record(s)
+2019-08-07 12:02:14.500339 IP6 fe80::b9d0:680d:7dd6:3b88 > ff02::16: HBH ICMP6, multicast listener report v2, 2 group record(s), length 48
+2019-08-07 12:02:14.906812 IP6 fe80::b9d0:680d:7dd6:3b88.53805 > ff02::1:3.hostmon: UDP, length 33
+2019-08-07 12:02:14.906822 IP 8.8.5.26.53805 > 224.0.0.252.hostmon: UDP, length 33
+2019-08-07 12:02:15.240183 IP 8.8.5.26.netbios-ns > 8.8.5.31.netbios-ns: NBT UDP PACKET(137): REGISTRATION; REQUEST; BROADCAST
+2019-08-07 12:02:15.240221 IP 8.8.5.26.netbios-ns > 8.8.5.31.netbios-ns: NBT UDP PACKET(137): REGISTRATION; REQUEST; BROADCAST
+2019-08-07 12:02:15.499438 IP6 fe80::b9d0:680d:7dd6:3b88 > ip6-allrouters: ICMP6, router solicitation, length 16
+2019-08-07 12:02:15.983892 IP 8.8.5.26.netbios-ns > 8.8.5.31.netbios-ns: NBT UDP PACKET(137): REGISTRATION; REQUEST; BROADCAST
+2019-08-07 12:02:15.983901 IP 8.8.5.26.netbios-ns > 8.8.5.31.netbios-ns: NBT UDP PACKET(137): REGISTRATION; REQUEST; BROADCAST
+2019-08-07 12:02:16.609067 IP6 fe80::b9d0:680d:7dd6:3b88.dhcpv6-client > ff02::1:2.dhcpv6-server: dhcp6 solicit
+2019-08-07 12:02:16.733934 IP 8.8.5.26.netbios-ns > 8.8.5.31.netbios-ns: NBT UDP PACKET(137): REGISTRATION; REQUEST; BROADCAST
+2019-08-07 12:02:16.733943 IP 8.8.5.26.netbios-ns > 8.8.5.31.netbios-ns: NBT UDP PACKET(137): REGISTRATION; REQUEST; BROADCAST
+2019-08-07 12:02:17.220598 ARP, Request who-has 8.8.5.1 tell 8.8.5.26, length 46
+2019-08-07 12:02:17.253737 LLDP, length 46
+2019-08-07 12:02:17.483987 IP 8.8.5.26.netbios-ns > 8.8.5.31.netbios-ns: NBT UDP PACKET(137): REGISTRATION; REQUEST; BROADCAST
+2019-08-07 12:02:17.483996 IP 8.8.5.26.netbios-ns > 8.8.5.31.netbios-ns: NBT UDP PACKET(137): REGISTRATION; REQUEST; BROADCAST
+2019-08-07 12:02:17.609095 IP6 fe80::b9d0:680d:7dd6:3b88.dhcpv6-client > ff02::1:2.dhcpv6-server: dhcp6 solicit
+2019-08-07 12:02:18.151131 ARP, Request who-has 8.8.5.1 tell 8.8.5.26, length 46
+2019-08-07 12:02:18.249530 LLDP, length 46
+2019-08-07 12:02:18.471625 IP 8.8.5.26.netbios-ns > 8.8.5.31.netbios-ns: NBT UDP PACKET(137): QUERY; REQUEST; BROADCAST
+2019-08-07 12:02:18.471853 IP6 fe80::b9d0:680d:7dd6:3b88.52281 > ff02::1:3.hostmon: UDP, length 22
+2019-08-07 12:02:18.471862 IP 8.8.5.26.52281 > 224.0.0.252.hostmon: UDP, length 22
+2019-08-07 12:02:18.472179 IP6 fe80::b9d0:680d:7dd6:3b88.53510 > ff02::1:3.hostmon: UDP, length 22
+2019-08-07 12:02:18.472214 IP 8.8.5.26.53510 > 224.0.0.252.hostmon: UDP, length 22
+2019-08-07 12:02:18.888961 IP 8.8.5.26.netbios-ns > 8.8.5.31.netbios-ns: NBT UDP PACKET(137): REGISTRATION; REQUEST; BROADCAST
+2019-08-07 12:02:18.890367 IP6 fe80::b9d0:680d:7dd6:3b88.52281 > ff02::1:3.hostmon: UDP, length 22
+2019-08-07 12:02:18.890375 IP6 fe80::b9d0:680d:7dd6:3b88.53510 > ff02::1:3.hostmon: UDP, length 22
+2019-08-07 12:02:18.890403 IP 8.8.5.26.53510 > 224.0.0.252.hostmon: UDP, length 22
+2019-08-07 12:02:18.890406 IP 8.8.5.26.52281 > 224.0.0.252.hostmon: UDP, length 22
+2019-08-07 12:02:19.221820 IP 8.8.5.26.netbios-ns > 8.8.5.31.netbios-ns: NBT UDP PACKET(137): QUERY; REQUEST; BROADCAST
+2019-08-07 12:02:19.252979 LLDP, length 46
+2019-08-07 12:02:19.612567 IP6 fe80::b9d0:680d:7dd6:3b88.dhcpv6-client > ff02::1:2.dhcpv6-server: dhcp6 solicit
+2019-08-07 12:02:19.628084 IP 8.8.5.26.netbios-ns > 8.8.5.31.netbios-ns: NBT UDP PACKET(137): REGISTRATION; REQUEST; BROADCAST
+2019-08-07 12:02:19.971852 IP 8.8.5.26.netbios-ns > 8.8.5.31.netbios-ns: NBT UDP PACKET(137): QUERY; REQUEST; BROADCAST
+2019-08-07 12:02:20.253061 LLDP, length 46
+2019-08-07 12:02:20.378138 IP 8.8.5.26.netbios-ns > 8.8.5.31.netbios-ns: NBT UDP PACKET(137): REGISTRATION; REQUEST; BROADCAST
+2019-08-07 12:02:20.578691 ARP, Request who-has 8.8.5.24 tell 8.8.5.1, length 46
+2019-08-07 12:02:21.128169 IP 8.8.5.26.netbios-ns > 8.8.5.31.netbios-ns: NBT UDP PACKET(137): REGISTRATION; REQUEST; BROADCAST
+2019-08-07 12:02:21.578376 ARP, Request who-has 8.8.5.24 tell 8.8.5.1, length 46
+2019-08-07 12:02:22.578078 ARP, Request who-has 8.8.5.24 tell 8.8.5.1, length 46
+2019-08-07 12:02:23.624796 IP6 fe80::b9d0:680d:7dd6:3b88.dhcpv6-client > ff02::1:2.dhcpv6-server: dhcp6 solicit
+2019-08-07 12:02:23.904486 IP 8.8.5.13.mdns > 224.0.0.251.mdns: 0 [2q] SRV (QM)? SFTP File Transfer on router3._sftp-ssh._tcp.local. A (QM)? router3.local. (82)
+2019-08-07 12:02:23.904723 IP 8.8.5.1.mdns > 224.0.0.251.mdns: 0*- [0q] 2/0/0 (Cache flush) A 8.8.5.1, (Cache flush) SRV router3.local.:22 0 0 (106)
+2019-08-07 12:02:24.707989 IP 8.8.5.26.netbios-ns > 8.8.5.31.netbios-ns: NBT UDP PACKET(137): REGISTRATION; REQUEST; BROADCAST
+2019-08-07 12:02:24.722592 IP 8.8.5.26.netbios-dgm > 8.8.5.31.netbios-dgm: NBT UDP PACKET(138)
+2019-08-07 12:02:24.723325 IP 8.8.5.26.netbios-ns > 8.8.5.31.netbios-ns: NBT UDP PACKET(137): QUERY; REQUEST; BROADCAST
+2019-08-07 12:02:25.368480 IP hp11.fragnel.ac.in.940 > ganesh.fragnel.ac.in.nfs: Flags [.], ack 2473171766, win 13588, options [nop,nop,TS val 3199056367 ecr 928779454], length 0
+2019-08-07 12:02:25.369337 IP ganesh.fragnel.ac.in.nfs > hp11.fragnel.ac.in.940: Flags [.], ack 1, win 16501, options [nop,nop,TS val 928786958 ecr 3199026352], length 0
+2019-08-07 12:02:25.452941 IP 8.8.5.26.netbios-ns > 8.8.5.31.netbios-ns: NBT UDP PACKET(137): REGISTRATION; REQUEST; BROADCAST
+2019-08-07 12:02:25.468520 IP 8.8.5.26.netbios-ns > 8.8.5.31.netbios-ns: NBT UDP PACKET(137): QUERY; REQUEST; BROADCAST
+2019-08-07 12:02:26.203380 IP 8.8.5.26.netbios-ns > 8.8.5.31.netbios-ns: NBT UDP PACKET(137): REGISTRATION; REQUEST; BROADCAST
+2019-08-07 12:02:26.230056 IP 8.8.5.26.netbios-ns > 8.8.5.31.netbios-ns: NBT UDP PACKET(137): QUERY; REQUEST; BROADCAST
+2019-08-07 12:02:26.964514 IP 8.8.5.26.netbios-ns > 8.8.5.31.netbios-ns: NBT UDP PACKET(137): REGISTRATION; REQUEST; BROADCAST
+2019-08-07 12:02:27.018930 ARP, Request who-has 8.8.5.24 tell 8.8.5.1, length 46
+2019-08-07 12:02:27.102906 IP 8.8.5.26.netbios-ns > 8.8.5.31.netbios-ns: NBT UDP PACKET(137): QUERY; REQUEST; BROADCAST
+2019-08-07 12:02:27.376714 IP 8.8.5.26.netbios-ns > 8.8.5.31.netbios-ns: NBT UDP PACKET(137): QUERY; REQUEST; BROADCAST
+2019-08-07 12:02:27.377727 IP6 fe80::b9d0:680d:7dd6:3b88.61685 > ff02::1:3.hostmon: UDP, length 24
+2019-08-07 12:02:27.377849 IP 8.8.5.26.61685 > 224.0.0.252.hostmon: UDP, length 24
+2019-08-07 12:02:27.380781 IP 8.8.5.26.netbios-ns > 8.8.5.31.netbios-ns: NBT UDP PACKET(137): QUERY; REQUEST; BROADCAST
+2019-08-07 12:02:27.380790 IP 8.8.5.26.netbios-ns > 8.8.5.31.netbios-ns: NBT UDP PACKET(137): QUERY; REQUEST; BROADCAST
+2019-08-07 12:02:27.380952 IP 8.8.5.26.netbios-ns > 8.8.5.31.netbios-ns: NBT UDP PACKET(137): QUERY; REQUEST; BROADCAST
+2019-08-07 12:02:27.381078 IP6 fe80::b9d0:680d:7dd6:3b88.52921 > ff02::1:3.hostmon: UDP, length 24
+2019-08-07 12:02:27.381086 IP6 fe80::b9d0:680d:7dd6:3b88.56031 > ff02::1:3.hostmon: UDP, length 24
+2019-08-07 12:02:27.381214 IP 8.8.5.26.52921 > 224.0.0.252.hostmon: UDP, length 24
+2019-08-07 12:02:27.381220 IP 8.8.5.26.56031 > 224.0.0.252.hostmon: UDP, length 24
+2019-08-07 12:02:27.381656 IP6 fe80::b9d0:680d:7dd6:3b88.51239 > ff02::1:3.hostmon: UDP, length 24
+2019-08-07 12:02:27.381665 IP 8.8.5.26.51239 > 224.0.0.252.hostmon: UDP, length 24
+2019-08-07 12:02:27.751967 IP 8.8.5.26.netbios-dgm > 8.8.5.31.netbios-dgm: NBT UDP PACKET(138)
+2019-08-07 12:02:27.758675 IP 8.8.5.26.netbios-dgm > 8.8.5.31.netbios-dgm: NBT UDP PACKET(138)
+2019-08-07 12:02:27.761204 IP 8.8.5.3.netbios-dgm > 8.8.5.31.netbios-dgm: NBT UDP PACKET(138)
+2019-08-07 12:02:27.792737 IP6 fe80::b9d0:680d:7dd6:3b88.51239 > ff02::1:3.hostmon: UDP, length 24
+2019-08-07 12:02:27.792745 IP6 fe80::b9d0:680d:7dd6:3b88.52921 > ff02::1:3.hostmon: UDP, length 24
+2019-08-07 12:02:27.792747 IP6 fe80::b9d0:680d:7dd6:3b88.56031 > ff02::1:3.hostmon: UDP, length 24
+2019-08-07 12:02:27.792749 IP6 fe80::b9d0:680d:7dd6:3b88.61685 > ff02::1:3.hostmon: UDP, length 24
+2019-08-07 12:02:27.792779 IP 8.8.5.26.56031 > 224.0.0.252.hostmon: UDP, length 24
+2019-08-07 12:02:27.792782 IP 8.8.5.26.52921 > 224.0.0.252.hostmon: UDP, length 24
+2019-08-07 12:02:27.792783 IP 8.8.5.26.51239 > 224.0.0.252.hostmon: UDP, length 24
+2019-08-07 12:02:27.792814 IP 8.8.5.26.61685 > 224.0.0.252.hostmon: UDP, length 24
+2019-08-07 12:02:27.808088 IP6 fe80::b9d0:680d:7dd6:3b88 > ff02::16: HBH ICMP6, multicast listener report v2, 1 group record(s), length 28
+2019-08-07 12:02:27.808097 IP 8.8.5.26 > 224.0.0.22: igmp v3 report, 1 group record(s)
+2019-08-07 12:02:27.808251 IP6 fe80::b9d0:680d:7dd6:3b88 > ff02::16: HBH ICMP6, multicast listener report v2, 1 group record(s), length 28
+2019-08-07 12:02:27.808259 IP 8.8.5.26 > 224.0.0.22: igmp v3 report, 1 group record(s)
+2019-08-07 12:02:27.836733 IP6 fe80::b9d0:680d:7dd6:3b88 > ff02::16: HBH ICMP6, multicast listener report v2, 2 group record(s), length 48
+2019-08-07 12:02:27.836742 IP 8.8.5.26.netbios-ns > 8.8.5.31.netbios-ns: NBT UDP PACKET(137): QUERY; REQUEST; BROADCAST
+2019-08-07 12:02:27.836748 IP 8.8.5.26 > 224.0.0.22: igmp v3 report, 1 group record(s)
+2019-08-07 12:02:27.836908 IP 8.8.5.26 > 224.0.0.22: igmp v3 report, 1 group record(s)
+2019-08-07 12:02:27.836989 IP6 fe80::b9d0:680d:7dd6:3b88.51082 > ff02::1:3.hostmon: UDP, length 22
+2019-08-07 12:02:27.837107 IP 8.8.5.26.51082 > 224.0.0.252.hostmon: UDP, length 22
+2019-08-07 12:02:27.837320 IP6 fe80::b9d0:680d:7dd6:3b88.51901 > ff02::1:3.hostmon: UDP, length 22
+2019-08-07 12:02:27.837328 IP6 fe80::b9d0:680d:7dd6:3b88.64081 > ff02::1:3.hostmon: UDP, length 33
+2019-08-07 12:02:27.837330 IP 8.8.5.26.64081 > 224.0.0.252.hostmon: UDP, length 33
+2019-08-07 12:02:27.837333 IP 8.8.5.26.51901 > 224.0.0.252.hostmon: UDP, length 22
+2019-08-07 12:02:27.839472 IP 8.8.5.26.netbios-ns > 8.8.5.31.netbios-ns: NBT UDP PACKET(137): QUERY; REQUEST; BROADCAST
+2019-08-07 12:02:27.995734 IP 8.8.5.26 > 224.0.0.22: igmp v3 report, 2 group record(s)
+2019-08-07 12:02:27.995739 IP6 fe80::b9d0:680d:7dd6:3b88 > ff02::16: HBH ICMP6, multicast listener report v2, 2 group record(s), length 48
+2019-08-07 12:02:28.018329 ARP, Request who-has 8.8.5.24 tell 8.8.5.1, length 46
+2019-08-07 12:02:28.120784 IP 8.8.5.26.netbios-ns > 8.8.5.31.netbios-ns: NBT UDP PACKET(137): QUERY; REQUEST; BROADCAST
+2019-08-07 12:02:28.120793 IP 8.8.5.26.netbios-ns > 8.8.5.31.netbios-ns: NBT UDP PACKET(137): QUERY; REQUEST; BROADCAST
+2019-08-07 12:02:28.120795 IP 8.8.5.26.netbios-ns > 8.8.5.31.netbios-ns: NBT UDP PACKET(137): QUERY; REQUEST; BROADCAST
+2019-08-07 12:02:28.120832 IP 8.8.5.26.netbios-ns > 8.8.5.31.netbios-ns: NBT UDP PACKET(137): QUERY; REQUEST; BROADCAST
+2019-08-07 12:02:28.245899 IP6 fe80::b9d0:680d:7dd6:3b88.64081 > ff02::1:3.hostmon: UDP, length 33
+2019-08-07 12:02:28.245907 IP6 fe80::b9d0:680d:7dd6:3b88.51901 > ff02::1:3.hostmon: UDP, length 22
+2019-08-07 12:02:28.245909 IP6 fe80::b9d0:680d:7dd6:3b88.51082 > ff02::1:3.hostmon: UDP, length 22
+2019-08-07 12:02:28.245911 IP 8.8.5.26.51082 > 224.0.0.252.hostmon: UDP, length 22
+2019-08-07 12:02:28.245914 IP 8.8.5.26.64081 > 224.0.0.252.hostmon: UDP, length 33
+2019-08-07 12:02:28.245943 IP 8.8.5.26.51901 > 224.0.0.252.hostmon: UDP, length 22
+2019-08-07 12:02:28.573948 IP 8.8.5.26.netbios-ns > 8.8.5.31.netbios-ns: NBT UDP PACKET(137): QUERY; REQUEST; BROADCAST
+2019-08-07 12:02:28.589526 IP 8.8.5.26.netbios-ns > 8.8.5.31.netbios-ns: NBT UDP PACKET(137): QUERY; REQUEST; BROADCAST
+2019-08-07 12:02:28.870834 IP 8.8.5.26.netbios-ns > 8.8.5.31.netbios-ns: NBT UDP PACKET(137): QUERY; REQUEST; BROADCAST
+2019-08-07 12:02:28.870842 IP 8.8.5.26.netbios-ns > 8.8.5.31.netbios-ns: NBT UDP PACKET(137): QUERY; REQUEST; BROADCAST
+2019-08-07 12:02:28.870844 IP 8.8.5.26.netbios-ns > 8.8.5.31.netbios-ns: NBT UDP PACKET(137): QUERY; REQUEST; BROADCAST
+2019-08-07 12:02:28.870846 IP 8.8.5.26.netbios-ns > 8.8.5.31.netbios-ns: NBT UDP PACKET(137): QUERY; REQUEST; BROADCAST
+2019-08-07 12:02:29.018074 ARP, Request who-has 8.8.5.24 tell 8.8.5.1, length 46
+2019-08-07 12:02:29.323989 IP 8.8.5.26.netbios-ns > 8.8.5.31.netbios-ns: NBT UDP PACKET(137): QUERY; REQUEST; BROADCAST
+2019-08-07 12:02:30.367627 ARP, Request who-has hp11.fragnel.ac.in tell 8.8.5.1, length 46
+2019-08-07 12:02:30.367638 ARP, Reply hp11.fragnel.ac.in is-at 40:a8:f0:43:95:46 (oui Unknown), length 28
+2019-08-07 12:02:30.794522 IP 8.8.5.26.netbios-ns > 8.8.5.31.netbios-ns: NBT UDP PACKET(137): QUERY; REQUEST; BROADCAST
+2019-08-07 12:02:30.796474 IP6 fe80::b9d0:680d:7dd6:3b88.60735 > ff02::1:3.hostmon: UDP, length 22
+2019-08-07 12:02:30.796482 IP 8.8.5.26.60735 > 224.0.0.252.hostmon: UDP, length 22
+2019-08-07 12:02:30.796715 IP6 fe80::b9d0:680d:7dd6:3b88.61280 > ff02::1:3.hostmon: UDP, length 22
+2019-08-07 12:02:30.796724 IP 8.8.5.26.61280 > 224.0.0.252.hostmon: UDP, length 22
+2019-08-07 12:02:31.203012 IP6 fe80::b9d0:680d:7dd6:3b88.61280 > ff02::1:3.hostmon: UDP, length 22
+2019-08-07 12:02:31.203020 IP6 fe80::b9d0:680d:7dd6:3b88.60735 > ff02::1:3.hostmon: UDP, length 22
+2019-08-07 12:02:31.203022 IP 8.8.5.26.60735 > 224.0.0.252.hostmon: UDP, length 22
+2019-08-07 12:02:31.203025 IP 8.8.5.26.61280 > 224.0.0.252.hostmon: UDP, length 22
+2019-08-07 12:02:31.223766 IP 8.8.5.3.netbios-dgm > 8.8.5.31.netbios-dgm: NBT UDP PACKET(138)
+2019-08-07 12:02:31.224140 IP 8.8.5.26.netbios-dgm > 8.8.5.31.netbios-dgm: NBT UDP PACKET(138)
+2019-08-07 12:02:31.233059 IP 8.8.5.3.netbios-dgm > 8.8.5.31.netbios-dgm: NBT UDP PACKET(138)
+2019-08-07 12:02:31.236849 IP 8.8.5.26.netbios-ns > 8.8.5.31.netbios-ns: NBT UDP PACKET(137): QUERY; REQUEST; BROADCAST
+2019-08-07 12:02:31.237146 IP6 fe80::b9d0:680d:7dd6:3b88.63055 > ff02::1:3.hostmon: UDP, length 33
+2019-08-07 12:02:31.237181 IP 8.8.5.26.63055 > 224.0.0.252.hostmon: UDP, length 33
+2019-08-07 12:02:31.237425 IP6 fe80::b9d0:680d:7dd6:3b88.62730 > ff02::1:3.hostmon: UDP, length 33
+2019-08-07 12:02:31.237469 IP 8.8.5.26.62730 > 224.0.0.252.hostmon: UDP, length 33
+2019-08-07 12:02:31.239465 ARP, Request who-has 8.8.5.3 tell 8.8.5.26, length 46
+2019-08-07 12:02:31.275237 IP6 fe80::b9d0:680d:7dd6:3b88.65017 > ff02::1:3.hostmon: UDP, length 33
+2019-08-07 12:02:31.275269 IP 8.8.5.26.65017 > 224.0.0.252.hostmon: UDP, length 33
+2019-08-07 12:02:31.275517 IP6 fe80::b9d0:680d:7dd6:3b88.58920 > ff02::1:3.hostmon: UDP, length 33
+2019-08-07 12:02:31.275526 IP 8.8.5.26.58920 > 224.0.0.252.hostmon: UDP, length 33
+2019-08-07 12:02:31.278305 IP6 fe80::b9d0:680d:7dd6:3b88.63063 > ff02::1:3.hostmon: UDP, length 33
+2019-08-07 12:02:31.278314 IP 8.8.5.26.63063 > 224.0.0.252.hostmon: UDP, length 33
+2019-08-07 12:02:31.278556 IP6 fe80::b9d0:680d:7dd6:3b88.58967 > ff02::1:3.hostmon: UDP, length 33
+2019-08-07 12:02:31.278642 IP 8.8.5.26.58967 > 224.0.0.252.hostmon: UDP, length 33
+2019-08-07 12:02:31.281303 IP6 fe80::b9d0:680d:7dd6:3b88.53334 > ff02::1:3.hostmon: UDP, length 33
+2019-08-07 12:02:31.281386 IP 8.8.5.26.53334 > 224.0.0.252.hostmon: UDP, length 33
+2019-08-07 12:02:31.281583 IP6 fe80::b9d0:680d:7dd6:3b88.49755 > ff02::1:3.hostmon: UDP, length 33
+2019-08-07 12:02:31.281592 IP 8.8.5.26.49755 > 224.0.0.252.hostmon: UDP, length 33
+2019-08-07 12:02:31.320954 IP6 fe80::b9d0:680d:7dd6:3b88.50446 > ff02::1:3.hostmon: UDP, length 33
+2019-08-07 12:02:31.321068 IP 8.8.5.26.50446 > 224.0.0.252.hostmon: UDP, length 33
+2019-08-07 12:02:31.321277 IP6 fe80::b9d0:680d:7dd6:3b88.52986 > ff02::1:3.hostmon: UDP, length 33
+2019-08-07 12:02:31.321285 IP 8.8.5.26.52986 > 224.0.0.252.hostmon: UDP, length 33
+2019-08-07 12:02:31.543413 IP 8.8.5.26.netbios-ns > 8.8.5.31.netbios-ns: NBT UDP PACKET(137): QUERY; REQUEST; BROADCAST
+2019-08-07 12:02:31.631716 IP6 fe80::b9d0:680d:7dd6:3b88.dhcpv6-client > ff02::1:2.dhcpv6-server: dhcp6 solicit
+2019-08-07 12:02:32.303427 IP 8.8.5.26.netbios-ns > 8.8.5.31.netbios-ns: NBT UDP PACKET(137): QUERY; REQUEST; BROADCAST
+2019-08-07 12:02:33.459663 ARP, Request who-has 8.8.5.24 tell 8.8.5.1, length 46
+2019-08-07 12:02:34.268378 ARP, Request who-has 8.8.5.1 tell 8.8.5.26, length 46
+2019-08-07 12:02:34.459344 ARP, Request who-has 8.8.5.24 tell 8.8.5.1, length 46
+2019-08-07 12:02:34.590300 IP 8.8.5.26.netbios-ns > 8.8.5.31.netbios-ns: NBT UDP PACKET(137): QUERY; REQUEST; BROADCAST
+2019-08-07 12:02:34.590653 IP6 fe80::b9d0:680d:7dd6:3b88.59819 > ff02::1:3.hostmon: UDP, length 24
+2019-08-07 12:02:34.590815 IP 8.8.5.26.59819 > 224.0.0.252.hostmon: UDP, length 24
+2019-08-07 12:02:35.009150 IP6 fe80::b9d0:680d:7dd6:3b88.59819 > ff02::1:3.hostmon: UDP, length 24
+2019-08-07 12:02:35.009158 IP 8.8.5.26.59819 > 224.0.0.252.hostmon: UDP, length 24
+2019-08-07 12:02:35.337136 IP 8.8.5.26.netbios-ns > 8.8.5.31.netbios-ns: NBT UDP PACKET(137): QUERY; REQUEST; BROADCAST
+2019-08-07 12:02:35.459028 ARP, Request who-has 8.8.5.24 tell 8.8.5.1, length 46
+2019-08-07 12:02:36.087171 IP 8.8.5.26.netbios-ns > 8.8.5.31.netbios-ns: NBT UDP PACKET(137): QUERY; REQUEST; BROADCAST
+ubuntu@hp11:~$ tcpdump -n -i enp3s0
+tcpdump: enp3s0: You don't have permission to capture on that device
+(socket: Operation not permitted)
+ubuntu@hp11:~$ sudo tcpdump -n -i enp3s0
+[sudo] password for ubuntu: 
+Sorry, try again.
+[sudo] password for ubuntu: 
+
