@@ -1,4 +1,3 @@
-# CNS
-Cryptography and Network Security Algorithms
+# Lab Experiments
 
-This is a repository of all the essential algorithms in cryptography and network security (CNS) in the curriculum
+This is a repository for all the essential algorithms in the curriculum.
